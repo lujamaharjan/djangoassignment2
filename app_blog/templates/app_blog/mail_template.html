@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Activation mail</title>
+</head>
+<body>
+
+{% autoescape off %}
+Hi, {{ user.first_name }},
+    Please click on the lik to confirm your registration,
+
+    {{ activate_url }}
+    If you think, it's not you, then just ignore this email.
+
+{% endautoescape %}
+</body>
+</html>

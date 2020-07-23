@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Merienda+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&family=Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+nav {
+    width:82%;
+    font-family: 'Merienda one', sans-serif;
+    margin: auto;
+}
+nav .navbar-brand{
+    font-size: 30px;
+    color: #1f1533 !important;
+}
+
+nav .admin{
+    background-color: #1f1533;
+    color: white;
+    padding:5px 5px;
+    border-radius: 5px;
+}
+
+
+@media(max-width:786px){
+    nav{
+        width: 94%;
+    }
+
+    nav .navbar-brand{
+        font-size: 23px;
+    }
+
+}
+
+footer{
+    margin-top:60px;
+    height: 80px;
+    clip-path: polygon(0% 0%, 15% 20%,30% 30%, 60% 30%, 85% 20%, 100% 0%, 100% 100%, 0% 100%, 0% 0%);
+    padding-top:40px;
+    color: white;
+    font-size:16px;
+    background-color: #1f1533;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+}
+
+
+/* blog-list */
+.btn-primary{
+    background-color: #1f1533;
+}
+
+.btn-primary:hover{
+    background-color: #3e2c61 !important;
+    color: white !important;
+}
+
+.blog-list{
+    width: 84%;
+    margin: 70px auto auto;
+}
+
+.blog-list .card-title{
+    font-family: 'Merienda one', sans-serif;
+}
+
+.blog-list .card-text{
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.blog-list .card{
+    width: 20rem;
+}
+
+@media(max-width:1180px) and (min-width:980px){
+    .blog-list .card{
+        width: 16rem;
+    }
+}
+
+@media(max-width:980px) and (min-width:767px){
+    .blog-list .card{
+        width: 14rem;
+    }
+}
+
+/* blog-detail */
+.blog-detail{
+    width: 82%;
+    margin: 60px auto auto;
+}
+
+.blog-detail img{
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.blog-detail h2{
+    margin-top: 60px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-family: 'Merienda one', sans-serif;
+}
+
+.blog-detail p{
+    padding: 5px 10px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 2;
+}
+
+.blog-detail p:not(:first-child) {
+    margin-bottom: -15px;
+}
+
+/*profile*/
+.profile{
+    width:82%;
+    margin:auto;
+    margin-top: 60px;
+}
+.profile .col-md-4{
+    border-right: 1px solid gray;
+}
+.profile h4{
+    padding-left: 65px;
+    font-family: "Merienda one", sans-serif;
+}
+
+.blog-update{
+    margin: auto;
+    width:82%;
+}

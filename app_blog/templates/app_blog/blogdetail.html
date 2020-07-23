@@ -1,0 +1,32 @@
+{% extends 'app_blog/base.html' %}
+{% load static %}
+{% block title %} Shadow Blogging: BlogDetail {% endblock %}
+{% block main %}
+
+
+     <section class="blog-detail">
+        <img src="{{ blog.featured_image.url }}" alt="blog image">
+        <h2>{{ blog.title }}</h2>
+        <p class="mb-4">
+            {{ blog.body }}
+        </p>
+        <p><span class="font-weight-bold">Author: </span>
+            {% if blog.author %}
+                {{ blog.author.get_full_name }}</p>
+            {% else %}
+                Anonymous
+            {% endif %}
+        <p><span class="font-weight-bold">Created_at: </span> {{ blog.created_date }}</p>
+        <p><span class="font-weight-bold">Updated_at: </span>  {{ blog.updated_date }}</p>
+     <hr>
+     {% if request.user == blog.author %}
+         <a class="btn btn-success" href="{% url 'app_blog:blog_update' blog.id %}">Update Blog</a>
+         <br><br>
+         <form method="post" action="/blog-delete/{{blog.id}}" id="delbtn">
+         {% csrf_token %}
+            <a class="btn btn-danger"  href="#" onclick="document.getElementById('delbtn').submit()">Delete Blog</a>
+         </form>
+     {% endif %}
+     </section>
+
+{% endblock %}

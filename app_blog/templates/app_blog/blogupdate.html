@@ -1,0 +1,15 @@
+{% extends 'app_blog/base.html' %}
+{% load static %}
+{% block title %} Shadow Blogging: BlogDetail {% endblock %}
+{% block main %}
+
+
+    <section class="blog-update" >
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-info"> Update </button>
+        </form>
+     </section>
+
+{% endblock %}

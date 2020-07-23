@@ -1,0 +1,54 @@
+{% extends 'app_blog/base.html' %}
+{% load static %}
+{% block title %} Shadow Blogging: profile {% endblock %}
+{% block main %}
+
+    <section class="profile">
+        <div class="row">
+            <div class="col-md-4" >
+                <img style="width:40%;" src="
+                        {% if request.user.profile_pic %}
+                            {{ request.user.profile_pic.url }}
+                        {% else %}
+                            {% static 'app_blog/images/Avatar_Alien-512.png' %}
+                        {% endif %}
+                    " alt="pic" title="profile picture">
+            <p>{{ request.user.get_full_name }}</p>
+            <p><span style="font-weight: bold">Joined At:
+            </span>{{ request.user.joined_at }}</p>
+            <button class="btn btn-danger" id="profileEdit">Edit profile</button>
+            <form id="profileEditForm" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" class="btn btn-danger" value="save">
+                <input type="submit" class="btn btn-danger" id="profileEditCancel" value="cancel">
+            </form>
+            </div>
+            <div class="col-md-8">
+                <h4>Blog by {{ request.user.get_full_name }}
+                    <a href="/blog-create/"  class="btn btn-success float-right">+ create new blog</a>
+                </h4>
+
+                    <div class="blog-list">
+                        <div class="row ">
+                            {% for blog in blogs %}
+                                <div class="col-md-6 mb-5">
+                                    <div class="card">
+                                        <img src="{{ blog.featured_image.url }}" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                        <h5 class="card-title">{{ blog.title }}</h5>
+                                        <p class="card-text">{{ blog.body | slice:":200" }}</p>
+                                        <a href="{% url 'app_blog:blog_detail' blog.id %}" class="btn btn-primary">Read more...</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}
+
